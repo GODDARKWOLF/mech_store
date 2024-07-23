@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <style>
-       body {
+        body {
             font-family: 'Figtree', ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -34,15 +34,7 @@
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-control {
-            margin-bottom: 1rem;
-            padding: 0.95rem;
-            border: 1px solid #E5E7EB; /* Example border color */
-            border-radius: 4px;
-            width: 100%;
-            box-sizing: border-box;
+            text-align: center;
         }
 
         .btn {
@@ -54,6 +46,7 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
             width: 100%;
+            margin-top: 1rem;
         }
 
         .btn:hover {
@@ -68,43 +61,27 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="text-center">Login Please</h2>
-        <form id="login-form" method="POST">
-            @csrf
-
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" type="email" class="form-control" name="email" required>
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" type="password" class="form-control" name="password" required autocomplete="new-password">
-            </div>
-
-            <button type="submit" class="btn">
-                Sign In
-            </button>
-        </form>
+        <h2>Welcome to the Landing Page</h2>
+        <p>You are successfully logged in!</p>
+        <button id="logout-button" class="btn">
+            Logout
+        </button>
         <div id="response-message" style="margin-top: 1rem;"></div>
     </div>
 
     <script>
-        document.getElementById('login-form').addEventListener('submit', async function(event) {
-            event.preventDefault(); // Prevent the default form submission
+        document.getElementById('logout-button').addEventListener('click', async function(event) {
+            event.preventDefault();
 
-            const form = event.target;
-            const formData = new FormData(form);
             const responseMessage = document.getElementById('response-message');
 
             try {
-                const response = await fetch('/login-user', {
+                const response = await fetch('/logout', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                    },
-                    body: formData
+                    }
                 });
 
                 const result = await response.json();
@@ -112,13 +89,10 @@
                 if (response.ok) {
                     responseMessage.style.color = 'green';
                     responseMessage.textContent = result.message;
-                    window.location.href = '/landing';
+                    window.location.href = '/login';
                 } else {
                     responseMessage.style.color = 'red';
-                    responseMessage.textContent = result.message || 'Login failed.';
-                    if (result.errors) {
-                        responseMessage.textContent += ' ' + JSON.stringify(result.errors);
-                    }
+                    responseMessage.textContent = result.message || 'Logout failed.';
                 }
             } catch (error) {
                 responseMessage.style.color = 'red';
