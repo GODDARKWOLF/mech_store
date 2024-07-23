@@ -14,6 +14,13 @@ class Manager_controller extends Controller
     
     public function store_data()
     {
+
+    }
+
+    public function delete(store $id)
+    {
+        $id->delete();
+
         
     }
 

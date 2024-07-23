@@ -1,11 +1,12 @@
 <title>Item Creation</title>
 
 <body>
+  <p>hello there</p>
   
   <div class="Cwapper">
 
-    <form action="{{route(data_storage)}}" method="POST">
-      
+    <form action="" method="POST">
+
     </form>
 
   </div>
