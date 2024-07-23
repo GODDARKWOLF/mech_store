@@ -10,3 +10,6 @@ Route::get('/', function () {
 
 // route::get('/create',[Manager_controller::class, 'index'])->name('create_page');
 // route::post('/create',[Manager_controller::class, 'store_data'])->name('data_storage');
+
+//route to delete data
+route::delete('/{id}',[Manager_controller::class, 'delete'])->name('delete_data');
