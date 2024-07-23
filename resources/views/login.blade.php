@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Merch-Store</title>
     
@@ -67,8 +68,8 @@
 </head>
 <body>
     <div class="container">
-    <h2 class="text-center">Login Please</h2>
-        <form method="POST">
+        <h2 class="text-center">Login Please</h2>
+        <form id="login-form" method="POST">
             @csrf
 
             <div class="form-group">
@@ -85,7 +86,45 @@
                 Sign In
             </button>
         </form>
+        <div id="response-message" style="margin-top: 1rem;"></div>
     </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const responseMessage = document.getElementById('response-message');
+
+            try {
+                const response = await fetch('/login-user', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    },
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    responseMessage.style.color = 'green';
+                    responseMessage.textContent = result.message;
+                    // Optionally redirect the user or store user information
+                } else {
+                    responseMessage.style.color = 'red';
+                    responseMessage.textContent = result.message || 'Login failed.';
+                    if (result.errors) {
+                        responseMessage.textContent += ' ' + JSON.stringify(result.errors);
+                    }
+                }
+            } catch (error) {
+                responseMessage.style.color = 'red';
+                responseMessage.textContent = 'An error occurred. Please try again. ' + error.message;
+            }
+        });
+    </script>
 </body>
 </html>
-        
