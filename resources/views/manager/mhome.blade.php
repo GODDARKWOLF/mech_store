@@ -12,11 +12,30 @@
         <th>Name</th>
         <th>Description</th>
         <th>Price</th>
-        <th>image</th>
+        <th>Created_at</th>
+        <th>Updated_at</th>
       </thead>
       
       <tbody>
+        @foreach ($table_data as $data )
+          <tr>
+            <td>{{$data -> id}}</td>
+            <td>{{$data -> name}}</td>
+            <td>{{$data -> description}}</td>
+            <td>{{$data -> price}}</td>
+            <td>{{$data -> created_at}}</td>
+            <td>{{$data -> updated_at}}</td>
 
+            <td>
+              <a href="{{route('edit_page',['name' => $data ->name])}}"><button>Edit</button></a>
+              <form action="{{route('delete_data',['name' => $data ->name])}}" method="POST">
+                @csrf
+                @method("DELETE")
+                 <button type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+        @endforeach
         
       </tbody>
     </table>
