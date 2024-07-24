@@ -2,10 +2,6 @@
 
 <body>
 
-  <p>hello there</p>
-
-  <h2> Add product</h2>
-  
   <div class="Cwapper">
     <h2> Add product</h2>
     <form action="{{route('data_storage')}}" method="POST">

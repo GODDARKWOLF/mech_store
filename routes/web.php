@@ -21,14 +21,18 @@ Route::get('/landing', function () {
 });
 
 //route displaying to the seller
-route::get('/',[Manager_controller::class, 'display'])->name('manager_homepage');
+route::get('/',[Manager_controller::class, 'display'])->name('home_display');
+
+//routes to edit product
+route::get('/edit/{name}',[Manager_controller::class, 'update_page'])->name('edit_page');
+route::post('/edit/{name}',[Manager_controller::class, 'update'])->name('update_data');
 
 //route to delete data
-route::delete('/{id}',[Manager_controller::class, 'delete'])->name('delete_data');
+route::delete('/{name}',[Manager_controller::class, 'delete'])->name('delete_data');
 
 //routes create the product
 route::get('/create',[Manager_controller::class, 'index'])->name('create_page');
-route::post('/create',[Manager_controller::class, 'store_data'])->name('data_storage');
+route::post('/create',[Manager_controller::class, 'create_product'])->name('data_storage');
 
 Route::post('/register-user', [UserController::class, 'store']);
 Route::post('/login-user', [AuthController::class, 'login']);

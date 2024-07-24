@@ -22,7 +22,7 @@ class Manager_controller extends Controller
         
         ]);
         $newProduct=product::create($incomingFields);
-        return redirect()->route('manager_homepage')->with('success','Product was created successfully.');
+        return redirect()->route('home_display')->with('success','Creation was successful.');
     
     }
     public function display()
@@ -32,22 +32,34 @@ class Manager_controller extends Controller
         return view('manager.mhome',['table_data' => $data]);
     }
 
-    public function update_page(product $id)
+    public function update_page(product $name)
     {
         $data = product::all();
 
-        return view('edit',compact($id),['Data' => $data]);
+        return view('manager.edit',compact($name),['Data' => $data]);
     }
-    public function update(product $id)
+    public function update(product $name, Request $request)
     {
+        $incomingFields=$request->validate([
+            'Name'=>'required',
+            'description'=>'required',
+            'price'=>'required'
+        
+        ]);
+        $name->name = request()->get('Name');
+        $name->description = request()->get('description');
+        $name->price = request()->get('price');
 
+        $name ->save();
+
+        return redirect()->route('home_display')->with('success','Creation was successful.');
     }
 
-    public function delete(product $id)
+    public function delete(product $name)
     {
-        $id->delete();
+        $name -> delete();
 
-        return redirect('manager.mhome')->with('Success',"Item deleted.");
+        return redirect('manager.mhome')->with('success','Deletion was successful');
 
     }
 
