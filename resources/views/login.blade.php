@@ -34,6 +34,7 @@
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .form-control {
@@ -64,10 +65,28 @@
             outline: none;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Example focus outline */
         }
+
+        .signup-btn {
+            background-color: #4CAF50; /* Sign Up button background color */
+            color: #FFFFFF; /* Sign Up button text color */
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .signup-btn:hover {
+            background-color: #45A049; /* Sign Up button hover color */
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <button class="signup-btn" onclick="window.location.href='/register'">Sign Up</button>
         <h2 class="text-center">Login Please</h2>
         <form id="login-form" method="POST">
             @csrf
