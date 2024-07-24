@@ -12,29 +12,32 @@
 
     <!-- Styles -->
     <style>
-       body {
-            font-family: 'Figtree', ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            line-height: 1.5;
-            background-color: #F3F4F6;
-            color: #000000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 0 1rem;
-        }
+     body {
+    font-family: 'Figtree', ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+    background: linear-gradient(135deg, #003366 0%, #40E0D0 100%); /* Deep Ocean Blue to Turquoise Blue */
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0 1rem;
+}
+
 
         .container {
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: #FFFFFF;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background: linear-gradient(to bottom, rgba(135, 206, 250, 0.5) 0%, rgba(255, 105, 180, 0.5) 100%);
+}
+
 
         .form-control {
             margin-bottom: 1rem;
