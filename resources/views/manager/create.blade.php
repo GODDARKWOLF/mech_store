@@ -1,7 +1,10 @@
 <title>Item Creation</title>
 
 <body>
-  
+
+  <p>hello there</p>
+
+  <h2> Add product</h2>
   
   <div class="Cwapper">
     <h2> Add product</h2>
@@ -13,11 +16,6 @@
       <button type="submit">Add</button>
  
 
-    </form>
-  
-
-
-   
   </div>
   
 </body>
