@@ -22,7 +22,7 @@ class Manager_controller extends Controller
         
         ]);
         $newProduct=product::create($incomingFields);
-        return redirect('/');
+        return redirect()->route('manager_homepage')->with('success','Product was created successfully.');
     
     }
     public function display()
