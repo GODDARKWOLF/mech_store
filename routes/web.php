@@ -7,7 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\controllers\AuthController;
 
 Route::get('/', function () {
-    return view('manager/create');
+    return view('manager/mhome');
 });
 Route::get('/login', function () {
     return view('login');
@@ -20,6 +20,8 @@ Route::get('/landing', function () {
     return view('landing');
 });
 
+//route displaying to the seller
+route::get('/manager_Home',[Manager_controller::class, 'display'])->name('manager_homepage');
 
 //route to delete data
 route::delete('/{id}',[Manager_controller::class, 'delete'])->name('delete_data');

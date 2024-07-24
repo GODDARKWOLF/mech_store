@@ -18,6 +18,13 @@ class Manager_controller extends Controller
 
     }
 
+    public function display()
+    {
+        $data = store::all();
+
+        return view('manager.mhome',['table_data' => $data]);
+    }
+
     public function update_page(store $id)
     {
         $data = store::all();
