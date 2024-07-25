@@ -27,8 +27,8 @@
             <td>{{$data -> updated_at}}</td>
 
             <td>
-              <a href="{{route('edit_page',['name' => $data ->name])}}"><button>Edit</button></a>
-              <form action="{{route('delete_data',['name' => $data ->name])}}" method="POST">
+              <a href="{{route('edit_page',['id' => $data ->id])}}"><button>Edit</button></a>
+              <form action="{{route('delete_data',['id' => $data ->id])}}" method="POST">
                 @csrf
                 @method("DELETE")
                  <button type="submit">Delete</button>
