@@ -32,13 +32,13 @@ class Manager_controller extends Controller
         return view('manager.mhome',['table_data' => $data]);
     }
 
-    public function update_page(product $name)
+    public function update_page(product $id)
     {
         $data = product::all();
 
-        return view('manager.edit',compact($name),['Data' => $data]);
+        return view('manager.edit',compact('id'),['Data' => $data]);
     }
-    public function update(product $name, Request $request)
+    public function update(product $id, Request $request)
     {
         $incomingFields=$request->validate([
             'Name'=>'required',
@@ -46,20 +46,20 @@ class Manager_controller extends Controller
             'price'=>'required'
         
         ]);
-        $name->name = request()->get('Name');
-        $name->description = request()->get('description');
-        $name->price = request()->get('price');
+        $id->name = request()->get('Name');
+        $id->description = request()->get('description');
+        $id->price = request()->get('price');
 
-        $name ->save();
+        $id ->save();
 
         return redirect()->route('home_display')->with('success','Creation was successful.');
     }
 
-    public function delete(product $name)
+    public function delete(product $id)
     {
-        $name -> delete();
+        $id -> delete();
 
-        return redirect('manager.mhome')->with('success','Deletion was successful');
+        return redirect()->route('home_display')->with('success','Deletion was successful');
 
     }
 

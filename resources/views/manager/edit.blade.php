@@ -1,14 +1,15 @@
 <title>Edit Product</title>
 
 <body>
-    {{$data ->$Data}}
+    {{$id ->$Data}}
   <div class="Ewapper">
     <h2> Edit product</h2>
-    <form action="{{route('Edit_data',$data ->name)}}" method="POST">
+    <form action="{{route('update_data',$id->id)}}" method="POST">
       @csrf
-      <input type="text" name="Name" value="{{$data -> name}}"> 
-      <input type="text" name="description" value="{{$data -> description}}">
-      <input type="text" name="price" value="{{$data -> price}}">
+      @method('PUT')
+      <input type="text" name="Name" value="{{$id->name}}"> 
+      <input type="text" name="description" value="{{$id->description}}">
+      <input type="text" name="price" value="{{$id->price}}">
       <button type="submit">Edit</button>
  
 
