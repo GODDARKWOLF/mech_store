@@ -21,10 +21,11 @@ Route::post('/register-user', [UserController::class, 'store']);
 Route::post('/login-user', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
+
 /* manager routes */ 
 Route::get('/manager',function(){
     return view('manager.mhome');
-})->name('home');
+})->name('manager_home');
 
 //routes create the product
 route::get('/create',[Manager_controller::class, 'index'])->name('create_page');
@@ -39,3 +40,12 @@ route::put('/manager/edit/{id}',[Manager_controller::class, 'update'])->name('up
 
 //route to delete data
 route::delete('/manager/{id}',[Manager_controller::class, 'delete'])->name('delete_data');
+
+
+/* User routes */
+route::get('/user', function(){
+    return view('user.uhome');
+})->name('user_name');
+
+//route to display what items are available for purchase
+route::get('/user',[User_controller::class, 'display'])->name('user_display');
