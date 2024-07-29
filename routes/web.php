@@ -5,6 +5,11 @@ use App\Http\Controllers\Manager_controller;
 use App\Http\Controllers\User_controller;
 use App\Http\Controllers\UserController;
 use App\Http\controllers\AuthController;
+use App\Http\Controllers\CheckoutController;
+
+Route::get('/', function () {
+    return view('checkout');
+});
 
 Route::get('/login', function () {
     return view('login');
@@ -41,11 +46,4 @@ route::put('/manager/edit/{id}',[Manager_controller::class, 'update'])->name('up
 //route to delete data
 route::delete('/manager/{id}',[Manager_controller::class, 'delete'])->name('delete_data');
 
-
-/* User routes */
-Route::get('/user', function(){
-    return view('user.uhome');
-})->name('user_name');
-
-//route to display what items are available for purchase
-route::get('/user',[User_controller::class, 'display'])->name('user_display');
+//checkout related routes
