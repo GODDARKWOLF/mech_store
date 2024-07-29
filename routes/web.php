@@ -43,7 +43,7 @@ route::delete('/manager/{id}',[Manager_controller::class, 'delete'])->name('dele
 
 
 /* User routes */
-route::get('/user', function(){
+Route::get('/user', function(){
     return view('user.uhome');
 })->name('user_name');
 

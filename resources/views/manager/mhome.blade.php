@@ -68,6 +68,7 @@
         <th>Name</th>
         <th>Description</th>
         <th>Price</th>
+        <th>Image</th>
         <th>Created_at</th>
         <th>Updated_at</th>
       </thead>
@@ -79,6 +80,11 @@
             <td>{{$data -> name}}</td>
             <td>{{$data -> description}}</td>
             <td>{{$data -> price}}</td>
+            <td>
+
+              <img height="200" width="200" src="products/{{$data ->image}}">
+
+            </td>
             <td>{{$data -> created_at}}</td>
             <td>{{$data -> updated_at}}</td>
 

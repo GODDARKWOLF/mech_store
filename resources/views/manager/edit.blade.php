@@ -81,6 +81,11 @@
       <input type="text" id="price" name="price" value="{{$id ->price}}" required>
       <br><br>
 
+      <label for="image"> Product Image </label>
+      <br>
+      <input type="file" id="image" name="image" {{$id ->image}}>
+      <br><br>
+
       <button type="submit">Edit</button>
  
 

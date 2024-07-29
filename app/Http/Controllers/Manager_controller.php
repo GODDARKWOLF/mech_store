@@ -22,6 +22,20 @@ class Manager_controller extends Controller
         
         ]);
         $newProduct=product::create($incomingFields);
+
+        $image = $request->image;
+        
+        if($image)
+        {
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+
+            $request->image->move('product',$imagename);
+
+            $newProduct->image = $imagename;
+        }
+
+        $newProduct->save();
+
         return redirect()->route('home_display')->with('success','Creation was successful.');
     
     }
