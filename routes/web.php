@@ -10,6 +10,7 @@ use App\Http\Controllers\CheckoutController;
 Route::get('/', function () {
     return view('checkout');
 });
+
 Route::get('/login', function () {
     return view('login');
 });
@@ -21,19 +22,28 @@ Route::get('/landing', function () {
     return view('landing');
 });
 
-//route displaying to the seller
-route::get('/manager_Home',[Manager_controller::class, 'display'])->name('manager_homepage');
+Route::post('/register-user', [UserController::class, 'store']);
+Route::post('/login-user', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout']);
 
-//route to delete data
-route::delete('/{id}',[Manager_controller::class, 'delete'])->name('delete_data');
+
+/* manager routes */ 
+Route::get('/manager',function(){
+    return view('manager.mhome');
+})->name('manager_home');
 
 //routes create the product
 route::get('/create',[Manager_controller::class, 'index'])->name('create_page');
 route::post('/create',[Manager_controller::class, 'create_product'])->name('data_storage');
 
-Route::post('/register-user', [UserController::class, 'store']);
-Route::post('/login-user', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout']);
+//route displaying to the seller
+route::get('/manager',[Manager_controller::class, 'display'])->name('home_display');
+
+//routes to edit product
+route::get('/manager/edit/{id}',[Manager_controller::class, 'update_page'])->name('edit_page');
+route::put('/manager/edit/{id}',[Manager_controller::class, 'update'])->name('update_data');
+
+//route to delete data
+route::delete('/manager/{id}',[Manager_controller::class, 'delete'])->name('delete_data');
 
 //checkout related routes
-
