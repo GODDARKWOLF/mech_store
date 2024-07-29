@@ -7,10 +7,6 @@ use App\Http\Controllers\UserController;
 use App\Http\controllers\AuthController;
 use App\Http\Controllers\CheckoutController;
 
-Route::get('/', function () {
-    return view('checkout');
-});
-
 Route::get('/login', function () {
     return view('login');
 });
@@ -46,4 +42,10 @@ route::put('/manager/edit/{id}',[Manager_controller::class, 'update'])->name('up
 //route to delete data
 route::delete('/manager/{id}',[Manager_controller::class, 'delete'])->name('delete_data');
 
-//checkout related routes
+
+/* Checkout routes */
+Route::get('/', function () {
+    return view('checkout');
+});
+
+Route::get('/checkout',[CheckoutController::class, 'checkout'])->name('checkout_page');
