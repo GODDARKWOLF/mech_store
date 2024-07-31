@@ -18,7 +18,8 @@ class Manager_controller extends Controller
         $incomingFields=$request->validate([
             'Name'=>'required',
             'description'=>'required',
-            'price'=>'required'
+            'price'=>'required',
+            'image' => 'required|image|mimes:png,jpg,gif,jpeg|max:2048',
         
         ]);
         $newProduct=product::create($incomingFields);
@@ -27,11 +28,11 @@ class Manager_controller extends Controller
         
         if($image)
         {
-            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $image = time().'.'.$image->getClientOriginalExtension();
 
-            $request->image->move('product',$imagename);
+            $request->image->move('product',$image);
 
-            $newProduct->image = $imagename;
+            $newProduct->image = $image;
         }
 
         $newProduct->save();
@@ -54,26 +55,28 @@ class Manager_controller extends Controller
     }
     public function update(product $id, Request $request)
     {
-        $incomingFields=$request->validate([
+        $request->validate([
             'Name'=>'required',
             'description'=>'required',
-            'price'=>'required'
+            'price'=>'required',
         
         ]);
-        $id->name = request()->get('Name');
-        $id->description = request()->get('description');
-        $id->price = request()->get('price');
+
+        $id->name = request() ->get('Name');
+        $id->description = request() ->get('description');
+        $id->price = request() ->get('price');
+        $id->image = request()->get('image');
 
         $id ->save();
 
-        return redirect()->route('home_display')->with('success','Creation was successful.');
+        return redirect()->route('home_display')->with('updated','Update was successful.');
     }
 
     public function delete(product $id)
     {
         $id -> delete();
 
-        return redirect()->route('home_display')->with('success','Deletion was successful');
+        return redirect()->route('home_display')->with('deleted','Deletion was successful');
 
     }
 

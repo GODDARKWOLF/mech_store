@@ -68,7 +68,7 @@
       @method('PUT')
       <label for="Name"> Name </label>
       <br>
-      <input type="text" id="Name" name="Name" value="{{$id ->name}}" required>
+      <input type="text" id="Name" name="Name" value="{{$id ->Name}}" required>
       <br><br>
 
       <label for="Description"> Description </label> 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use app\Models\User;
 
 class CheckoutController extends Controller
 {
@@ -15,6 +16,6 @@ class CheckoutController extends Controller
     }
 
     public function delete(){
-        
+        User::truncate();
     }
 }
