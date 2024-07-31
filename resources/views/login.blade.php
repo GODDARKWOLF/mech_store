@@ -106,7 +106,7 @@
             </button>
         </form>
 
-        <button class="signup-btn" onclick="window.location.href='/register'">Sign Up</button>
+        <a href="{{route('signup')}}"><button class="signup-btn">Sign Up</button></a>
 
         <div id="response-message" style="margin-top: 1rem;"></div>
     </div>
