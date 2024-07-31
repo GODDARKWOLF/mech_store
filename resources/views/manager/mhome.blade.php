@@ -1,61 +1,5 @@
 <title>Manager Homepage</title>
 
-<style>
-  .main_display
-  {
-    margin: auto;
-    width: 500px;
-  }
-
-  .create
-  {
-    font-size: 18;
-    font-family: 'franklin Gothic Medium';
-    text-align: center;
-  }
-
-  body
-  {
-
-    font-family: 'Franklin Gothic Medium';
-    font-size: medium;
-    text-align: center;
-    margin: 10px;
-    background-color: blueviolet;
-
-  }
-
-  button
-  {
-    background-color: #ccc;
-  }
-
-  button:hover
-  {
-    background-color: hotpink;
-    cursor: pointer;
-  }
-
-  table
-  {
-    padding: 15px;
-    border-radius: 15px;
-    width: 75%;
-    height: 75%;
-    background-color: lightskyblue;
-  }
-
-  thead, tbody
-  {
-    padding: 20px;
-    border-radius: 20px;
-    width: 100%;
-    height: 100%;
-    
-  }
-
-</style>
-
 <body>
 
   <section class="main_display">
@@ -64,7 +8,7 @@
     @if (@session()->has('success'))
         {{ 'Data has been added' }}
     @endif
-    
+
     <table border="3">
       <thead>
         <th>ID</th>
