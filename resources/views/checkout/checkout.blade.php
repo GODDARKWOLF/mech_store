@@ -47,7 +47,7 @@
     <div >
 
         <h2> Payment Method</h2>
-        <form action="">
+        <form action="{{route('purchased')}}">
         <input type="radio" name="payment" value="Direct Bank Transfer">Direct Bank Transfer<br>
         <input type="radio" name="payment" value="Paypal">Paypal<br>
         <input type="radio" name="payment" value="Credit card">Credit card<br>

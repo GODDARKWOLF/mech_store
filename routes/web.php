@@ -9,14 +9,14 @@ use App\Http\Controllers\CheckoutController;
 
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 Route::get('/register', function () {
     return view('signup');
-});
+})->name('signup');
 
 Route::get('/landing', function () {
     return view('landing');
-});
+})->name('landing');
 
 Route::post('/register-user', [UserController::class, 'store']);
 Route::post('/login-user', [AuthController::class, 'login']);
@@ -49,3 +49,5 @@ Route::get('/', function () {
 });
 
 Route::get('/checkout',[CheckoutController::class, 'checkout'])->name('checkout_page');
+
+route::get('/purchase',[CheckoutController::class, 'purchase'])->name('purchased');
