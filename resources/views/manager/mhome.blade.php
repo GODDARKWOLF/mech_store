@@ -61,6 +61,9 @@
   <section class="main_display">
 
     <a href="{{route('create_page')}}"><button>creation page</button></a>
+    @if (@session()->has('success'))
+        {{ 'Data has been added' }}
+    @endif
     
     <table border="3">
       <thead>
@@ -101,6 +104,14 @@
         
       </tbody>
     </table>
+
+    @if (@session()->has('updated'))
+        {{ 'Data has been updated' }}
+    @endif
+
+    @if (@session()->has('deleted'))
+        {{ 'Data has been deleted' }}
+    @endif
 
   </section>
 
