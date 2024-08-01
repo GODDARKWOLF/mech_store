@@ -4,9 +4,9 @@ Description:
 This project is meant to work as an e-commerce shopping site where users can either register as buyer's or seller's  
 
 Contributor include:
-Jabulani
-Abednego
-Mavis
+Jabulani,
+Abednego,
+Mavis'
 Mansfield
 
 Roles:
