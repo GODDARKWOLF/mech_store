@@ -10,8 +10,12 @@ Mavis,
 Mansfield
 
 Roles:
+
 Product Management was done by Jabulani and Mavis
+
 Authentication was done by Abednego and Mansfield
+
 Checkout was done by Abednego and Mavis
+
 Shopping Cart was done by Mansfield and Jabulani
 
