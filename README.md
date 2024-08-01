@@ -6,7 +6,7 @@ This project is meant to work as an e-commerce shopping site where users can eit
 Contributor include:
 Jabulani,
 Abednego,
-Mavis'
+Mavis,
 Mansfield
 
 Roles:
